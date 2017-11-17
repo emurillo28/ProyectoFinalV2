@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Proyecto Final</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="Correr">Running</string>
+    <string name="Ciclismo">Cyclism</string>
+    <string name="Natacion">Swimming</string>
+    <string name="Pesas">Weightlifting</string>
+    <string name="Fuerza">Strength</string>
+</resources>
