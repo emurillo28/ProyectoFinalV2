@@ -32,7 +32,7 @@ public class EnterRunningData extends Activity{
     }
 
     public void create(View view) {
-        DatabaseHelper databaseHelper = new DatabaseHelper(this, "admin", null, 1);
+        DatabaseHelper databaseHelper = new DatabaseHelper(this, null, null, 1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
 
         String carrera = tv1.getText().toString();

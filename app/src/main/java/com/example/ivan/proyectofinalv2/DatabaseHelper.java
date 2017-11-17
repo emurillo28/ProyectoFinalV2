@@ -10,11 +10,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
+    private static final String DB_NAME = "ProjectDB";
     private static final String CREATE_TB_USER = "create table user(id integer primary key, name text, email text)";
     private static final String CREATE_TB_RUNNING = "create table running(carrera text, fecha text, hora text, min text, seg text)";
 
     public DatabaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+        super(context, DB_NAME, factory, version);
     }
 
     @Override
