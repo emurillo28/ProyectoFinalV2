@@ -82,8 +82,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_carrera) {
-            Intent ActivityRunning = new Intent(getApplicationContext(), ChooseRunningActivity.class);
-            startActivity(ActivityRunning);
+            Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
+            startActivity(EnterActivity);
         } else if (id == R.id.nav_ciclismo) {
 
         } else if (id == R.id.nav_natacion) {
