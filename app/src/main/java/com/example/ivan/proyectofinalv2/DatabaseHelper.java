@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "ProjectDB";
-    private static final String CREAR_TB_ACTIVIDADES = "create table actividades(id integer primary key, Nombre text, Descripcion text, Categoria text)";
+    private static final String CREAR_TB_ACTIVIDADES = "CREATE  TABLE actividades(id integer primary key, Nombre text, Descripcion text, Categoria text)";
     private static final String CREAR_TB_AEROBICAS = "CREATE  TABLE aerobicas (tiempo FLOAT, distancia FLOAT, descripcion TEXT, fecha DATETIME, id_actividad integer, FOREIGN KEY(id_actividad) REFERENCES  actividades(id))";
     private static final String CREAR_TB_ANAEROBICAS = "CREATE TABLE anaerobicas(tiempo FLOAT, repeticiones INTEGER,peso FLOAT, descripcion TEXT, fecha DATETIME, id_actividad integer, FOREIGN KEY(id_actividad) REFERENCES  actividades(id))";
 

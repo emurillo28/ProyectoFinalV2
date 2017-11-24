@@ -2,6 +2,8 @@ package com.example.ivan.proyectofinalv2;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -23,13 +25,14 @@ public class EnterActivityData extends Activity {
     private TextView tv_fecha;
     private EditText edt_tiempo, edt_distancia, edt_descripcion, edt_peso;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    private String categ;
     // poner los atributos aqui
     // private edt1, edt2, edt3;
 
     protected void onCreate(Bundle  savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Ocupamos obtener el tipo de actividad que es
-        String categ = "AERO";
+        // TODO Ocupamos obtener el tipo de actividad que es
+        categ = "AERO";
 
         if(categ == "AERO") {
             setContentView(R.layout.activity_aero_entry);
@@ -85,9 +88,37 @@ public class EnterActivityData extends Activity {
         * idForaneaActividad // de donde sacamos este? xd
         * */
 
+
     }
 
     private void anaeroFunctionality() {
         // obtenemos datos para las actividades anaerobicas.
     }
+
+    private void submit() {
+        DatabaseHelper databaseHelper = new DatabaseHelper(this, null, null, 1);
+        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        String fecha = tv_fecha.toString();
+        String tiempo = edt_tiempo.toString();
+        String descripcion = edt_descripcion.toString();
+
+        values.put("fecha",fecha);
+        values.put("tiempo",tiempo);
+        values.put("descripcion",descripcion);
+        //String idActividad = ?
+        //values.put("id_actividad",idActividad);
+        if(categ == "AERO") {
+            String distancia = edt_distancia.toString();
+
+            values.put("distancia",distancia);
+
+            db.insert("aerobicas", null, values);
+        } else {
+
+            db.insert("anaerobicas", null, values);
+        }
+    }
+
 }

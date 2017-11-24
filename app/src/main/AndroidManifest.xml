@@ -29,6 +29,11 @@
             android:label="@string/enterdata"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".EnterActivityData"
+            android:label="@string/enterdata"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
