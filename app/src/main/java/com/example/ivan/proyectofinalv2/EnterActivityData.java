@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -29,6 +30,7 @@ public class EnterActivityData extends Activity {
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private String categ;
     private Spinner sp_peso, sp_distancia;
+
     // poner los atributos aqui
     // private edt1, edt2, edt3;
 
@@ -53,7 +55,7 @@ public class EnterActivityData extends Activity {
         edt_descripcion = (EditText) findViewById(R.id.edt_descripcion);
         sp_distancia = (Spinner) findViewById(R.id.spinner);
         tv_fecha = (TextView) findViewById(R.id.tv_fecha);
-
+        
         String distancias[] = {"m", "km", "mi"};
         sp_distancia.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, distancias));
 
@@ -139,7 +141,8 @@ public class EnterActivityData extends Activity {
         // obtenemos datos para las actividades anaerobicas.
     }
 
-    public void submit() {
+    public void submit(View V) {
+
         DatabaseHelper databaseHelper = new DatabaseHelper(this, null, null, 1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -163,6 +166,7 @@ public class EnterActivityData extends Activity {
 
             db.insert("anaerobicas", null, values);
         }
+        super.onBackPressed();
     }
 
 }
