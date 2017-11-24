@@ -89,7 +89,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_natacion) {
 
         } else if (id == R.id.nav_pesas) {
-
+            Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
+            startActivity(EnterActivity);
         } else if (id == R.id.nav_fuerza) {
 
         } //else if (id == R.id.nav_send) {

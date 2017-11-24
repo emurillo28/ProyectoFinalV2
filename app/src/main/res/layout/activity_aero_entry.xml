@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edt_tiempo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -24,12 +24,12 @@
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/edt_tiempo"
+        android:id="@+id/edt_distancia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/tv_fecha"
         android:layout_alignRight="@+id/tv_fecha"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/edt_tiempo"
         android:layout_marginTop="83dp"
         android:ems="10"
         android:hint="Distancia"
@@ -39,10 +39,10 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edt_tiempo"
-        android:layout_toRightOf="@+id/edt_tiempo"
-        android:layout_toEndOf="@+id/edt_tiempo"
-        android:layout_alignTop="@+id/edt_tiempo" />
+        android:layout_alignBottom="@+id/edt_distancia"
+        android:layout_toRightOf="@+id/edt_distancia"
+        android:layout_toEndOf="@+id/edt_distancia"
+        android:layout_alignTop="@+id/edt_distancia" />
 
     <EditText
         android:id="@+id/edt_descripcion"
@@ -52,7 +52,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/edt_tiempo"
+        android:layout_below="@+id/edt_distancia"
         android:layout_marginTop="37dp"
         android:ems="10"
         android:hint="Descripcion"
