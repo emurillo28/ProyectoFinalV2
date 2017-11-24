@@ -139,7 +139,7 @@ public class EnterActivityData extends Activity {
         // obtenemos datos para las actividades anaerobicas.
     }
 
-    private void submit() {
+    public void submit() {
         DatabaseHelper databaseHelper = new DatabaseHelper(this, null, null, 1);
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
