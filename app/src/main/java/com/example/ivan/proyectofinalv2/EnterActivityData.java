@@ -147,9 +147,9 @@ public class EnterActivityData extends Activity {
         SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        String fecha = tv_fecha.toString();
-        String tiempo = edt_tiempo.toString();
-        String descripcion = edt_descripcion.toString();
+        String fecha = tv_fecha.getText().toString();
+        String tiempo = edt_tiempo.getText().toString();
+        String descripcion = edt_descripcion.getText().toString();
 
         values.put("fecha",fecha);
         values.put("tiempo",tiempo);
@@ -157,7 +157,7 @@ public class EnterActivityData extends Activity {
         //String idActividad = ?
         //values.put("id_actividad",idActividad);
         if(categ == "AERO") {
-            String distancia = edt_distancia.toString();
+            String distancia = edt_distancia.getText().toString();
 
             values.put("distancia",distancia);
 
