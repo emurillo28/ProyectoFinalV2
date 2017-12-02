@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -55,7 +56,7 @@ public class EnterActivityData extends Activity {
         edt_descripcion = (EditText) findViewById(R.id.edt_descripcion);
         sp_distancia = (Spinner) findViewById(R.id.spinner);
         tv_fecha = (TextView) findViewById(R.id.tv_fecha);
-        
+
         String distancias[] = {"m", "km", "mi"};
         sp_distancia.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, distancias));
 
@@ -166,6 +167,8 @@ public class EnterActivityData extends Activity {
 
             db.insert("anaerobicas", null, values);
         }
+      //  Snackbar.make(V, "Replace with your own action", Snackbar.LENGTH_LONG)
+        //        .setAction("Action", null).show();
         super.onBackPressed();
     }
 

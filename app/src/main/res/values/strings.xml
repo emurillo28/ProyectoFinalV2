@@ -8,9 +8,10 @@
 
     <string name="Correr">Running</string>
     <string name="Ciclismo">Ciclismo</string>
-    <string name="Natacion">Natacino</string>
+    <string name="Natacion">Natacion</string>
     <string name="Pesas">Pesas</string>
     <string name="Fuerza">Fuerza</string>
+    <string name="Mas">Mas</string>
     <string name="run400m">400m</string>
     <string name="chooseRun">Elige la distancia</string>
     <string name="enterdata">Ingres los datos de la carrera</string>

@@ -4,24 +4,28 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_carrera"
-            android:icon="@drawable/running"
-            android:title="@string/Correr"> </item>
+            android:icon="@drawable/icons8_running_50"
+            android:title="@string/Correr"/>
         <item
             android:id="@+id/nav_ciclismo"
-            android:icon="@drawable/cycling"
+            android:icon="@drawable/icons8_cycling_50"
             android:title="@string/Ciclismo" />
         <item
             android:id="@+id/nav_natacion"
-            android:icon="@drawable/swimming"
+            android:icon="@drawable/icons8_swimming_50"
             android:title="@string/Natacion" />
         <item
             android:id="@+id/nav_pesas"
-            android:icon="@drawable/weightlifting"
+            android:icon="@drawable/icons8_weightlifting_50"
             android:title="@string/Pesas" />
         <item
             android:id="@+id/nav_fuerza"
-            android:icon="@drawable/strength"
+            android:icon="@drawable/icons8_pushups_50"
             android:title="@string/Fuerza" />
+        <item
+            android:id="@+id/nav_mas"
+            android:icon="@drawable/icons8_plus_50"
+            android:title="@string/Mas" />
     </group>
 
  <!--   <item android:title="Communicate">
