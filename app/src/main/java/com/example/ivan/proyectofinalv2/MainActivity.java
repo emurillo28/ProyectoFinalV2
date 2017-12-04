@@ -1,9 +1,11 @@
 package com.example.ivan.proyectofinalv2;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,26 +83,10 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Log.d("",findViewById(R.id.).toString());
 
         Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
-        EnterActivity.putExtra("id", id);
         startActivity(EnterActivity);
-        /*
-        if (id == R.id.nav_carrera) {
-            Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
-            startActivity(EnterActivity);
-        } else if (id == R.id.nav_ciclismo) {
-
-        } else if (id == R.id.nav_natacion) {
-
-        } else if (id == R.id.nav_pesas) {
-        } else if (id == R.id.nav_fuerza) {
-
-        } else if (id == R.id.nav_mas) {
-            Intent SelectActivity = new Intent(getApplicationContext(), SelectActivity.class);
-            startActivity(SelectActivity);
-        }
-        */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -30,22 +30,22 @@ public class EnterActivityData extends Activity {
     private TextView tv_fecha;
     private EditText edt_tiempo, edt_distancia, edt_descripcion, edt_peso;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-    private String categ;
+    private String idActividad;
     private Spinner sp_peso, sp_distancia;
-
-    // poner los atributos aqui
-    // private edt1, edt2, edt3;
+    private SQLiteDatabase db;
 
     protected void onCreate(Bundle  savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO Ocupamos obtener el tipo de actividad que es
-        categ = "AERO";
-        int id = getIntent().getIntExtra("id",0);
-        if(id == R.id.nav_carrera) {
-            Log.d(TAG, "onCreate: "+  id);
-        }
+        DatabaseHelper databaseHelper = new DatabaseHelper(this, null, null, 1);
+        db = databaseHelper.getWritableDatabase();
+        // TODO Ocupamos obtener el registro de la base de datos.
 
-        if(categ == "AERO") {
+        int id = getIntent().getIntExtra("id",0);
+        //EditText temp = (EditText) findViewById(id);
+        //idActividad = temp.getText().toString();
+        Log.d(TAG,idActividad);
+
+        if(true) {
             setContentView(R.layout.activity_aero_entry);
             // De donde estariamos sacando el nombre de la actividad?
             aeroFunctionality();
@@ -93,17 +93,6 @@ public class EnterActivityData extends Activity {
                 tv_fecha.setText(date);
             }
         };
-
-        // Obtenemos los datos para la actividad aerobica
-        /*
-        * fecha
-        * tiempo
-        * distancia
-        * descripcion
-        * idForaneaActividad // de donde sacamos este? xd
-        * */
-
-
     }
 
     private void anaeroFunctionality() {
@@ -148,9 +137,6 @@ public class EnterActivityData extends Activity {
     }
 
     public void submit(View V) {
-
-        DatabaseHelper databaseHelper = new DatabaseHelper(this, null, null, 1);
-        SQLiteDatabase db = databaseHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         String fecha = tv_fecha.getText().toString();
@@ -162,7 +148,7 @@ public class EnterActivityData extends Activity {
         values.put("descripcion",descripcion);
         //String idActividad = ?
         //values.put("id_actividad",idActividad);
-        if(categ == "AERO") {
+        if(true) {
             String distancia = edt_distancia.getText().toString();
 
             values.put("distancia",distancia);
