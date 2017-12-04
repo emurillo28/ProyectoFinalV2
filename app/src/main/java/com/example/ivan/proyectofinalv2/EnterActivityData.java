@@ -33,19 +33,18 @@ public class EnterActivityData extends Activity {
     private String idActividad;
     private Spinner sp_peso, sp_distancia;
     private SQLiteDatabase db;
+    private Actividad actividad;
 
     protected void onCreate(Bundle  savedInstanceState) {
         super.onCreate(savedInstanceState);
         DatabaseHelper databaseHelper = new DatabaseHelper(this, null, null, 1);
         db = databaseHelper.getWritableDatabase();
-        // TODO Ocupamos obtener el registro de la base de datos.
 
-        int id = getIntent().getIntExtra("id",0);
-        //EditText temp = (EditText) findViewById(id);
-        //idActividad = temp.getText().toString();
-        Log.d(TAG,idActividad);
+        String id = getIntent().getStringExtra("activity");
 
-        if(true) {
+        actividad = databaseHelper.getActivity(id);
+        Log.d(TAG, actividad.getCategoria());
+        if(actividad.getCategoria().equalsIgnoreCase("AERO")) {
             setContentView(R.layout.activity_aero_entry);
             // De donde estariamos sacando el nombre de la actividad?
             aeroFunctionality();

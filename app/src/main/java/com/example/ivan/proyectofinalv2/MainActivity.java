@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import static android.content.ContentValues.TAG;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -82,11 +84,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        View view = findViewById(R.id.nav_carrera);
-        view.toString();
-        Log.
+        String id = item.getTitle().toString();
         Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
+        EnterActivity.putExtra("activity",id);
         startActivity(EnterActivity);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
