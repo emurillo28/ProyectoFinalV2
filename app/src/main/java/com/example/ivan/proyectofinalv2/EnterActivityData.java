@@ -3,6 +3,7 @@ package com.example.ivan.proyectofinalv2;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -39,13 +40,17 @@ public class EnterActivityData extends Activity {
         super.onCreate(savedInstanceState);
         // TODO Ocupamos obtener el tipo de actividad que es
         categ = "AERO";
+        int id = getIntent().getIntExtra("id",0);
+        if(id == R.id.nav_carrera) {
+            Log.d(TAG, "onCreate: "+  id);
+        }
 
         if(categ == "AERO") {
             setContentView(R.layout.activity_aero_entry);
             // De donde estariamos sacando el nombre de la actividad?
             aeroFunctionality();
         } else {
-            // setContentView(R.layout.activity_anaero_entry);
+            setContentView(R.layout.layout_anaero_entry);
             anaeroFunctionality();
         }
     }

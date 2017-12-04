@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
+        EnterActivity.putExtra("id", id);
+        startActivity(EnterActivity);
+        /*
         if (id == R.id.nav_carrera) {
             Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
             startActivity(EnterActivity);
@@ -89,15 +93,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_natacion) {
 
         } else if (id == R.id.nav_pesas) {
-            Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
-            startActivity(EnterActivity);
         } else if (id == R.id.nav_fuerza) {
 
         } else if (id == R.id.nav_mas) {
             Intent SelectActivity = new Intent(getApplicationContext(), SelectActivity.class);
             startActivity(SelectActivity);
         }
-
+        */
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
