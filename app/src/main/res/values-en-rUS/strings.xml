@@ -12,4 +12,5 @@
     <string name="Natacion">Swimming</string>
     <string name="Pesas">Weightlifting</string>
     <string name="Fuerza">Strength</string>
+    <string name="Mas">Plus</string>
 </resources>

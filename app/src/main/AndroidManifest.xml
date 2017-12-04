@@ -32,8 +32,13 @@
         <activity
             android:name=".EnterActivityData"
             android:label="@string/enterdata"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme">
         </activity>
+        <activity
+        android:name=".SelectActivity"
+        android:label="Elige la actividad"
+        android:theme="@style/AppTheme">
+    </activity>
     </application>
 
 </manifest>
