@@ -83,8 +83,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Log.d("",findViewById(R.id.).toString());
-
+        View view = findViewById(R.id.nav_carrera);
+        view.toString();
+        Log.
         Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
         startActivity(EnterActivity);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
