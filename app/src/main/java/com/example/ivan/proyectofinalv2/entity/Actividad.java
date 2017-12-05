@@ -1,4 +1,4 @@
-package com.example.ivan.proyectofinalv2;
+package com.example.ivan.proyectofinalv2.entity;
 
 /**
  * Created by Dell on 04/12/2017.

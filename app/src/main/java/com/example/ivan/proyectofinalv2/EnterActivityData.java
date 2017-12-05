@@ -3,22 +3,24 @@ package com.example.ivan.proyectofinalv2;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import com.example.ivan.proyectofinalv2.entity.Actividad;
+import com.example.ivan.proyectofinalv2.entity.Aerobica;
+import com.example.ivan.proyectofinalv2.entity.Anaerobica;
 
 import static android.content.ContentValues.TAG;
 
@@ -41,9 +43,14 @@ public class EnterActivityData extends Activity {
         db = databaseHelper.getWritableDatabase();
 
         String id = getIntent().getStringExtra("activity");
+        ArrayList<Actividad> actividades = databaseHelper.lstActividades();
+        ArrayList<Aerobica> aerobicas = databaseHelper.lstActividadesAERO();
+        ArrayList<Anaerobica> anaerobicas = databaseHelper.lstActividadesANAERO();
 
+        Log.d(TAG,actividades.toString());
+        Log.d(TAG,aerobicas.toString());
+        Log.d(TAG,anaerobicas.toString());
         actividad = databaseHelper.getActivity(id);
-        Log.d(TAG, actividad.getCategoria());
         if(actividad.getCategoria().equalsIgnoreCase("AERO")) {
             setContentView(R.layout.activity_aero_entry);
             // De donde estariamos sacando el nombre de la actividad?
@@ -102,7 +109,7 @@ public class EnterActivityData extends Activity {
         edt_peso = (EditText) findViewById(R.id.edt_peso);
 
         String pesos[] = {"kg","lb"};
-        sp_distancia.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, pesos));
+        sp_peso.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, pesos));
 
         tv_fecha.setOnClickListener(new View.OnClickListener() {
             @Override
