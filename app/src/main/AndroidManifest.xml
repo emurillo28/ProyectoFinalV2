@@ -35,8 +35,13 @@
             android:theme="@style/AppTheme">
         </activity>
         <activity
-        android:name=".SelectActivity"
-        android:label="Elige la actividad"
+            android:name=".SelectActivity"
+            android:label="Elige la actividad"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+        android:name=".HistoryActivity"
+        android:label="Registro de actividades"
         android:theme="@style/AppTheme">
     </activity>
     </application>

@@ -16,4 +16,5 @@
     <string name="chooseRun">Elige la distancia</string>
     <string name="enterdata">Ingres los datos de la carrera</string>
     <string name="guardar">Guardar</string>
+    <string name="Registro">Registro</string>
 </resources>

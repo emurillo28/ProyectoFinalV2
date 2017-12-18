@@ -47,9 +47,6 @@ public class EnterActivityData extends Activity {
         ArrayList<Aerobica> aerobicas = databaseHelper.lstActividadesAERO();
         ArrayList<Anaerobica> anaerobicas = databaseHelper.lstActividadesANAERO();
 
-        Log.d(TAG,actividades.toString());
-        Log.d(TAG,aerobicas.toString());
-        Log.d(TAG,anaerobicas.toString());
         actividad = databaseHelper.getActivity(id);
         if(actividad.getCategoria().equalsIgnoreCase("AERO")) {
             setContentView(R.layout.activity_aero_entry);

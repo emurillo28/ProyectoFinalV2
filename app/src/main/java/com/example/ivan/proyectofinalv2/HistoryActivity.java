@@ -26,8 +26,10 @@ public class HistoryActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        //Solo por poner algo puse el nombre y la descripcion, no se si eso vaya a quedar finalmente
+        DatabaseHelper db = new DatabaseHelper(this, null, null, 1);
 
+        //Solo por poner algo puse el nombre y la descripcion, no se si eso vaya a quedar finalmente
+        actividades = db.lstActividades(); //De aqui obtenemos el listado de la base de datos.
         ArrayList<String> nombresActividades = new ArrayList<>();
         ArrayList<String> descripcionActividades = new ArrayList<>();
         for (Actividad actividad : actividades){

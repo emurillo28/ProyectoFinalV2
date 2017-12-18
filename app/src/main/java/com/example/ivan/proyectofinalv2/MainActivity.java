@@ -85,11 +85,22 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         String id = item.getTitle().toString();
-        Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
-        EnterActivity.putExtra("activity",id);
-        startActivity(EnterActivity);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        Log.d(TAG,id);
+        //Tal vez deberiamos poner el switch..
+        if(id.equalsIgnoreCase("Plus")) {
+            Intent selectActivity = new Intent(getApplicationContext(), SelectActivity.class);
+            startActivity(selectActivity);
+        }else if(id.equalsIgnoreCase("History")) {
+            Intent historyActivity = new Intent(getApplicationContext(),HistoryActivity.class);
+            startActivity(historyActivity);
+        }else {
+            Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
+            EnterActivity.putExtra("activity",id);
+            startActivity(EnterActivity);
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+
+        }
         return true;
     }
 }
