@@ -2,10 +2,6 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/registro"
-        android:icon="@drawable/icons8_running_50"
-        android:title="@string/Registro" />
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_carrera"
@@ -32,6 +28,16 @@
             android:icon="@drawable/icons8_plus_50"
             android:title="@string/Mas" />
     </group>
+
+    <item
+        android:id="@+id/registro"
+        android:icon="@drawable/icons8_time_machine_50"
+        android:title="@string/Registro" />
+
+    <item
+        android:id="@+id/grafica"
+        android:icon="@drawable/icons8_running_50"
+        android:title="@string/Grafica" />
 
  <!--   <item android:title="Communicate">
         <menu>

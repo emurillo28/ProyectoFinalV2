@@ -93,6 +93,9 @@ public class MainActivity extends AppCompatActivity
         }else if(id.equalsIgnoreCase("Registro")) {
             Intent historyActivity = new Intent(getApplicationContext(),HistoryActivity.class);
             startActivity(historyActivity);
+        }else if(id.equalsIgnoreCase("Grafica")) {
+            Intent graphActivity = new Intent(getApplicationContext(),GraphActivity.class);
+            startActivity(graphActivity);
         }else {
             Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
             EnterActivity.putExtra("activity",id);
