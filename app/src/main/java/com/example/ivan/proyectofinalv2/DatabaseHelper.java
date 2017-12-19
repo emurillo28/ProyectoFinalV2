@@ -38,7 +38,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREAR_TB_LISTA_ACTIVIDADES);
         db.execSQL("INSERT INTO categorias values(\"Running\", \"AERO\")");
         db.execSQL("INSERT INTO categorias values(\"Ciclismo\",\"AERO\")");
+        db.execSQL("INSERT INTO categorias values(\"Natacion\",\"AERO\")");
+        db.execSQL("INSERT INTO categorias values(\"Caminata\",\"AERO\")");
         db.execSQL("INSERT INTO categorias values(\"Fuerza\", \"ANAERO\")");
+        db.execSQL("INSERT INTO categorias values(\"Pesas\", \"ANAERO\")");
 
     }
 

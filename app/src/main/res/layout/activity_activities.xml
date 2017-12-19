@@ -8,6 +8,7 @@
     tools:context="com.example.ivan.proyectofinalv2.SelectActivity"
     style="@style/AppTheme">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,6 +87,33 @@
             android:layout_marginLeft="@dimen/left"
             android:layout_weight="1"
             android:text="@string/Natacion"
+            android:textSize="@dimen/letra" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/top"
+        android:onClick="launchEnterActivity"
+        android:orientation="horizontal"
+        android:background="#b3e5fc">
+
+        <ImageView
+            android:id="@+id/imgWalking"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/icons8_walking_filled_50" />
+
+        <TextView
+            android:id="@+id/tvWalking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/left"
+            android:layout_weight="1"
+            android:text="Caminata"
             android:textSize="@dimen/letra" />
     </LinearLayout>
 

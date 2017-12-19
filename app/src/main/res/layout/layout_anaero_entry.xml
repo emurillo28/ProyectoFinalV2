@@ -1,72 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="wrap_content" android:layout_width="match_parent">
 
-    <TextView
-        android:id="@+id/tv_fecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Fecha"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edt_tiempo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="Duracion HH:MM:SS"
-        android:inputType="time"
-        android:layout_below="@+id/tv_fecha"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/tvActividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/letra"
+            android:text="TextView"
+            android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/edt_peso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/tv_fecha"
-        android:layout_alignRight="@+id/tv_fecha"
-        android:layout_below="@+id/edt_tiempo"
-        android:layout_marginTop="83dp"
-        android:ems="10"
-        android:hint="Peso"
-        android:inputType="number" />
+        <TextView
+            android:id="@+id/tv_Fecha0"
+            android:paddingTop="@dimen/top2"
+            android:textSize="@dimen/letra2"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            android:textStyle="bold"/>
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/edt_peso"
-        android:layout_toRightOf="@+id/edt_peso"
-        android:layout_toEndOf="@+id/edt_peso"
-        android:layout_alignTop="@+id/edt_peso" />
+        <TextView
+            android:id="@+id/tv_fecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textSize="@dimen/letra2" />
 
-    <EditText
-        android:id="@+id/edt_descripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/edt_peso"
-        android:layout_marginTop="37dp"
-        android:ems="10"
-        android:hint="Descripcion"
-        android:inputType="textMultiLine" />
+        <TextView
+            android:id="@+id/edt_tiempo0"
+            android:textSize="@dimen/letra2"
+            android:paddingTop="@dimen/top2"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Duracion"
+            android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edt_descripcion"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:text="@string/guardar"
-        android:onClick="submit"/>
+        <TextView
+            android:id="@+id/edt_tiempo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0:00:00"
+            android:textAlignment="center"
+            android:textSize="@dimen/letra2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/top2"
+            android:gravity="center">
+
+            <EditText
+                android:id="@+id/edt_peso"
+                android:textSize="@dimen/letra2"
+                android:textAlignment="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:inputType="number"
+                android:hint="Peso" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                style="@style/Widget.AppCompat.Spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:minHeight="@dimen/letra2"
+                android:scrollbarSize="@dimen/letra2" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edt_descripcion"
+            android:textSize="@dimen/letra2"
+            android:paddingTop="@dimen/top"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descripcion"
+            android:inputType="textMultiLine"/>
 
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="36dp"
+            android:text="@string/guardar"
+            android:onClick="submit"/>
+
+
+    </LinearLayout>
+</ScrollView>

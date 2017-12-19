@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -17,15 +18,12 @@ import org.w3c.dom.Text;
 
 public class SelectActivity extends AppCompatActivity{
 
-    TextView tvRunning;
-    ImageView imgRunning;
+    ListView lstActividades;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activities);
-
-        tvRunning = (TextView) findViewById(R.id.tvRunning);
-        imgRunning = (ImageView) findViewById(R.id.imgRunning);
+        lstActividades = (ListView) findViewById(R.id.lstActividades);
     }
 
     public void launchEnterActivity(View v) {
