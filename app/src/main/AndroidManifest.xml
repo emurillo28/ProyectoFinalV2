@@ -43,7 +43,12 @@
         android:name=".HistoryActivity"
         android:label="Registro de actividades"
         android:theme="@style/AppTheme">
-    </activity>
+        </activity>
+        <activity
+            android:name=".GraphActivity"
+            android:label="Grafica de las actividades"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>
