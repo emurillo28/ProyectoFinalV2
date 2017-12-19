@@ -131,7 +131,7 @@ public class EnterActivityData extends Activity {
     }
 
     private void anaeroFunctionality() {
-        edt_tiempo = (TextView) findViewById(R.id.edt_tiempo);
+        edt_tiempo = (EditText) findViewById(R.id.edt_tiempo);
         edt_descripcion = (EditText) findViewById(R.id.edt_descripcion);
         sp_peso = (Spinner) findViewById(R.id.spinner);
         tv_fecha = (TextView) findViewById(R.id.tv_fecha);
@@ -173,28 +173,6 @@ public class EnterActivityData extends Activity {
                 tv_fecha.setText(date);
             }
         };
-
-        edt_tiempo.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Calendar mcurrentTime = Calendar.getInstance();
-                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-                int minute = mcurrentTime.get(Calendar.MINUTE);
-                int second = mcurrentTime.get(Calendar.SECOND);
-
-                MyTimePickerDialog mTimePicker = new MyTimePickerDialog(EnterActivityData.this, new MyTimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(com.ikovac.timepickerwithseconds.TimePicker view, int hourOfDay, int minute, int seconds) {
-                        edt_tiempo.setText(String.format("%02d", hourOfDay)+
-                                ":" + String.format("%02d", minute) +
-                                ":" + String.format("%02d", seconds));
-                    }
-                }, hour, minute, second, true);
-                mTimePicker.show();
-
-            }
-        });
         // obtenemos datos para las actividades anaerobicas.
     }
 

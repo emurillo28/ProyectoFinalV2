@@ -39,14 +39,14 @@
             android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Duracion"
+            android:text="Repeticiones"
             android:textStyle="bold"/>
 
-        <TextView
+        <EditText
             android:id="@+id/edt_tiempo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0:00:00"
+            android:hint="0"
             android:textAlignment="center"
             android:textSize="@dimen/letra2" />
 
