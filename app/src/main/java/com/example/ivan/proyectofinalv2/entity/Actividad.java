@@ -6,29 +6,25 @@ package com.example.ivan.proyectofinalv2.entity;
 
 public class Actividad {
 
-    private int id;
     private String nombre;
+    private Float tiempo;
     private String descripcion;
-    private String categoria;
+    private Float distancia;
 
-    public Actividad() {
-
+    public Float getDistancia() {
+        return distancia;
     }
 
-    public Actividad(int id, String nombre, String descripcion, String categoria) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.categoria = categoria;
+    public void setDistancia(Float distancia) {
+        this.distancia = distancia;
     }
 
-    public int getId() {
-        return id;
-    }
+    private String fecha;
+    private String peso;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public Actividad(){}
+
+
 
     public String getNombre() {
         return nombre;
@@ -36,6 +32,14 @@ public class Actividad {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Float getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(Float tiempo) {
+        this.tiempo = tiempo;
     }
 
     public String getDescripcion() {
@@ -46,21 +50,40 @@ public class Actividad {
         this.descripcion = descripcion;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public void setPeso(String peso) {
+        this.peso = peso;
     }
 
     @Override
     public String toString() {
         return "Actividad{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                "nombre='" + nombre + '\'' +
+                ", tiempo='" + tiempo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
-                ", categoria='" + categoria + '\'' +
+                ", distancia='" + distancia + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", peso='" + peso + '\'' +
                 '}';
+    }
+
+    public Actividad(String nombre, Float tiempo, String descripcion, Float distancia, String fecha, String peso) {
+        this.nombre = nombre;
+        this.tiempo = tiempo;
+        this.descripcion = descripcion;
+        this.distancia = distancia;
+        this.fecha = fecha;
+        this.peso = peso;
     }
 }

@@ -19,8 +19,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.example.ivan.proyectofinalv2.entity.Actividad;
-import com.example.ivan.proyectofinalv2.entity.Aerobica;
-import com.example.ivan.proyectofinalv2.entity.Anaerobica;
+import com.example.ivan.proyectofinalv2.entity.Categoria;
 
 import static android.content.ContentValues.TAG;
 
@@ -36,6 +35,7 @@ public class EnterActivityData extends Activity {
     private Spinner sp_peso, sp_distancia;
     private SQLiteDatabase db;
     private Actividad actividad;
+    private Categoria categoria;
 
     protected void onCreate(Bundle  savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +44,10 @@ public class EnterActivityData extends Activity {
 
         String id = getIntent().getStringExtra("activity");
         ArrayList<Actividad> actividades = databaseHelper.lstActividades();
-        ArrayList<Aerobica> aerobicas = databaseHelper.lstActividadesAERO();
-        ArrayList<Anaerobica> anaerobicas = databaseHelper.lstActividadesANAERO();
+        ArrayList<Categoria> categorias = databaseHelper.lstCategorias();
 
-        actividad = databaseHelper.getActivity(id);
-        if(actividad.getCategoria().equalsIgnoreCase("AERO")) {
+        categoria = databaseHelper.getCategoria(id);
+        if(categoria.getCategoria().equalsIgnoreCase("AERO")) {
             setContentView(R.layout.activity_aero_entry);
             // De donde estariamos sacando el nombre de la actividad?
             aeroFunctionality();
@@ -145,23 +144,20 @@ public class EnterActivityData extends Activity {
         String fecha = tv_fecha.getText().toString();
         String tiempo = edt_tiempo.getText().toString();
         String descripcion = edt_descripcion.getText().toString();
-        int idActividad = actividad.getId();
+        String nombreActividad = categoria.getNombre();
 
         values.put("fecha",fecha);
         values.put("tiempo",tiempo);
         values.put("descripcion",descripcion);
-        values.put("id_actividad",idActividad);
-        if(actividad.getCategoria().equalsIgnoreCase("AERO")) {
+        values.put("nombre",nombreActividad);
+        if(categoria.getCategoria().equalsIgnoreCase("AERO")) {
             String distancia = edt_distancia.getText().toString();
-
             values.put("distancia",distancia);
-
-            db.insert("aerobicas", null, values);
         } else {
             String peso = edt_peso.getText().toString();
             values.put("peso", peso);
-            db.insert("anaerobicas", null, values);
         }
+        db.insert("actividades", null, values);
       //  Snackbar.make(V, "Replace with your own action", Snackbar.LENGTH_LONG)
         //        .setAction("Action", null).show();
         super.onBackPressed();
