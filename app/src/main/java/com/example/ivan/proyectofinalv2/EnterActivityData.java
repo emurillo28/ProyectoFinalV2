@@ -99,7 +99,7 @@ public class EnterActivityData extends Activity {
     }
 
     private void anaeroFunctionality() {
-        edt_tiempo = (EditText) findViewById(R.id.edt_distancia);
+        edt_tiempo = (EditText) findViewById(R.id.edt_tiempo);
         edt_descripcion = (EditText) findViewById(R.id.edt_descripcion);
         sp_peso = (Spinner) findViewById(R.id.spinner);
         tv_fecha = (TextView) findViewById(R.id.tv_fecha);
@@ -145,20 +145,21 @@ public class EnterActivityData extends Activity {
         String fecha = tv_fecha.getText().toString();
         String tiempo = edt_tiempo.getText().toString();
         String descripcion = edt_descripcion.getText().toString();
+        int idActividad = actividad.getId();
 
         values.put("fecha",fecha);
         values.put("tiempo",tiempo);
         values.put("descripcion",descripcion);
-        //String idActividad = ?
-        //values.put("id_actividad",idActividad);
-        if(true) {
+        values.put("id_actividad",idActividad);
+        if(actividad.getCategoria().equalsIgnoreCase("AERO")) {
             String distancia = edt_distancia.getText().toString();
 
             values.put("distancia",distancia);
 
             db.insert("aerobicas", null, values);
         } else {
-
+            String peso = edt_peso.getText().toString();
+            values.put("peso", peso);
             db.insert("anaerobicas", null, values);
         }
       //  Snackbar.make(V, "Replace with your own action", Snackbar.LENGTH_LONG)

@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.ivan.proyectofinalv2.entity.Actividad;
+import com.example.ivan.proyectofinalv2.entity.Aerobica;
+import com.example.ivan.proyectofinalv2.entity.Anaerobica;
 
 import java.util.ArrayList;
 
@@ -21,6 +23,8 @@ public class HistoryActivity extends Activity{
 
     ArrayList<Actividad> actividades; //No se que sea lo correcto, pero esto lo puse por mientras, me base en el del profe de
     //los contactos
+    ArrayList<Aerobica> aeroActivities;
+    ArrayList<Anaerobica> anaeroActivities;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +34,28 @@ public class HistoryActivity extends Activity{
 
         //Solo por poner algo puse el nombre y la descripcion, no se si eso vaya a quedar finalmente
         actividades = db.lstActividades(); //De aqui obtenemos el listado de la base de datos.
+        aeroActivities = db.lstActividadesAERO();
+        anaeroActivities = db.lstActividadesANAERO();
         ArrayList<String> nombresActividades = new ArrayList<>();
         ArrayList<String> descripcionActividades = new ArrayList<>();
-        for (Actividad actividad : actividades){
+        //Obtenemos la lista de actividades, tanto aerobicas como anaerobicas
+        // Pero el nombre de donde va a estar saliendo? pq ese esta en el objeto Actividad
+        Actividad actividad;
+        for (Anaerobica anaero : anaeroActivities){
+            actividad = actividades.get((anaero.getIdActividad()-1));
             nombresActividades.add(actividad.getNombre());
-            descripcionActividades.add(actividad.getDescripcion());
+            descripcionActividades.add(anaero.getDescripcion());
+        }
+
+        for(Aerobica aero : aeroActivities) {
+
+            actividad = actividades.get((aero.getIdActividad()-1));
+            nombresActividades.add(actividad.getNombre());
+            descripcionActividades.add(aero.getDescripcion());
         }
 
         ListView lstactividades = (ListView) findViewById(R.id.lstActividades);
         lstactividades.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombresActividades));
-        lstactividades.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2, descripcionActividades));
 
         lstactividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

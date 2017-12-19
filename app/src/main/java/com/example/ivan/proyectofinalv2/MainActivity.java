@@ -97,10 +97,10 @@ public class MainActivity extends AppCompatActivity
             Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);
             EnterActivity.putExtra("activity",id);
             startActivity(EnterActivity);
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
 
         }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 }

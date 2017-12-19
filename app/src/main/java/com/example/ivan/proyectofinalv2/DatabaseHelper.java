@@ -70,15 +70,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return actividad;
-        /*
-        Actividad actividad = null;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("select * from actividades where Nombre=" + "\""+name+"\"", null);
-        c.moveToFirst();
+    }
 
-        actividad = new Actividad(c.getInt(0),c.getString(1),c.getString(2),c.getString(3));
+    public Actividad getActivity(int id) {
+
+        Actividad actividad = new Actividad();
+        String selectQuery = "select id, Nombre, Descripcion, Categoria from actividades where Nombre = ?";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM actividades WHERE id = " + id, null);
+        if(cursor.moveToFirst()){
+            actividad.setId(cursor.getInt(0));
+            actividad.setNombre(cursor.getString(1));
+            actividad.setDescripcion(cursor.getString(2));
+            actividad.setCategoria(cursor.getString(3));
+        }
+        cursor.close();
         return actividad;
-        */
     }
 
     public ArrayList<Actividad> lstActividades() {

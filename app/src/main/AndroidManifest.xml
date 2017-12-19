@@ -40,10 +40,15 @@
             android:theme="@style/AppTheme">
         </activity>
         <activity
-        android:name=".HistoryActivity"
+            android:name=".HistoryActivity"
+            android:label="Registro de actividades"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+        android:name=".SummaryActvity"
         android:label="Registro de actividades"
         android:theme="@style/AppTheme">
-    </activity>
+        </activity>
     </application>
 
 </manifest>

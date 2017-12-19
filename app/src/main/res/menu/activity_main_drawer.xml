@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/registro"
+        android:icon="@drawable/icons8_running_50"
         android:title="@string/Registro" />
     <group android:checkableBehavior="single">
         <item
