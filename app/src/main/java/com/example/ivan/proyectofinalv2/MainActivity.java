@@ -87,10 +87,10 @@ public class MainActivity extends AppCompatActivity
         String id = item.getTitle().toString();
         Log.d(TAG,id);
         //Tal vez deberiamos poner el switch..
-        if(id.equalsIgnoreCase("Plus")) {
+        if(id.equalsIgnoreCase("Mas")) {
             Intent selectActivity = new Intent(getApplicationContext(), SelectActivity.class);
             startActivity(selectActivity);
-        }else if(id.equalsIgnoreCase("History")) {
+        }else if(id.equalsIgnoreCase("Registro")) {
             Intent historyActivity = new Intent(getApplicationContext(),HistoryActivity.class);
             startActivity(historyActivity);
         }else {

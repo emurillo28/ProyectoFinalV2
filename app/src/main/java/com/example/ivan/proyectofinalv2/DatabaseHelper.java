@@ -40,8 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREAR_TB_AEROBICAS);
         db.execSQL(CREAR_TB_ANAEROBICAS);
         db.execSQL("INSERT INTO actividades values(1,\"Running\", \"Actividad donde se corre, en suelo xd\", \"AERO\")");
-        db.execSQL("INSERT INTO actividades values(2,\"Cyclism\", \"Actividad donde se bicicletea\", \"AERO\")");
-        db.execSQL("INSERT INTO actividades values(3,\"Strength\", \"Actividad donde se levantan pesas\", \"ANAERO\")");
+        db.execSQL("INSERT INTO actividades values(2,\"Ciclismo\", \"Actividad donde se bicicletea\", \"AERO\")");
+        db.execSQL("INSERT INTO actividades values(3,\"Fuerza\", \"Actividad donde se levantan pesas\", \"ANAERO\")");
 
     }
 
