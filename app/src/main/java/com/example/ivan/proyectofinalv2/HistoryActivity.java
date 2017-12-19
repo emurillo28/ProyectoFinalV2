@@ -33,10 +33,6 @@ public class HistoryActivity extends Activity{
         //Solo por poner algo puse el nombre y la descripcion, no se si eso vaya a quedar finalmente
         actividades = db.lstActividades(); //De aqui obtenemos el listado de la base de datos.
         ArrayList<String> nombresActividades = new ArrayList<>();
-        ArrayList<String> descripcionActividades = new ArrayList<>();
-        //Obtenemos la lista de actividades, tanto aerobicas como anaerobicas
-        // Pero el nombre de donde va a estar saliendo? pq ese esta en el objeto Actividad
-        //Actividad actividad;
         for (Actividad actividad : actividades){
             nombresActividades.add(actividad.getNombre());
         }
