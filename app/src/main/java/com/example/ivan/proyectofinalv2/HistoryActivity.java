@@ -46,6 +46,10 @@ public class HistoryActivity extends Activity{
                 Intent intent = new Intent(getApplicationContext(), SummaryActvity.class);
                 intent.putExtra("nombre", actividades.get(i).getNombre());
                 intent.putExtra("descripcion", actividades.get(i).getDescripcion());
+                intent.putExtra("fecha", actividades.get(i).getFecha());
+                intent.putExtra("distancia", actividades.get(i).getDistancia());
+                intent.putExtra("peso", actividades.get(i).getPeso());
+                intent.putExtra("tiempo", actividades.get(i).getTiempo());
                 categoria = db.getCategoria(actividades.get(i).getNombre());
                 intent.putExtra("categoria", categoria.getCategoria());
                 startActivity(intent);
