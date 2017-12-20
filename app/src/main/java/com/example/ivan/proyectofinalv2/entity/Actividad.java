@@ -1,5 +1,7 @@
 package com.example.ivan.proyectofinalv2.entity;
 
+import android.content.Intent;
+
 /**
  * Created by Dell on 04/12/2017.
  */
@@ -7,7 +9,10 @@ package com.example.ivan.proyectofinalv2.entity;
 public class Actividad {
 
     private String nombre;
-    private Float tiempo;
+    //private Float tiempo;
+    private Integer horas;
+    private Integer minutos;
+    private Integer segundos;
     private String descripcion;
     private Float distancia;
 
@@ -24,7 +29,11 @@ public class Actividad {
 
     public Actividad(){}
 
+    public Integer getHoras() {return horas; }
 
+    public Integer getMinutos() {return minutos; }
+
+    public Integer getSegundos() {return segundos; }
 
     public String getNombre() {
         return nombre;
@@ -34,13 +43,15 @@ public class Actividad {
         this.nombre = nombre;
     }
 
-    public Float getTiempo() {
-        return tiempo;
+    public Integer getTiempo() {
+        return ((horas*3600)+(minutos*60)+segundos);
     }
 
-    public void setTiempo(Float tiempo) {
-        this.tiempo = tiempo;
-    }
+    public void setHoras(Integer horas) { this.horas = horas; }
+
+    public void setMinutos(Integer minutos) { this.minutos = minutos;}
+
+    public void setSegundos(Integer segundos) { this.segundos = segundos;}
 
     public String getDescripcion() {
         return descripcion;
@@ -70,7 +81,9 @@ public class Actividad {
     public String toString() {
         return "Actividad{" +
                 "nombre='" + nombre + '\'' +
-                ", tiempo='" + tiempo + '\'' +
+                ", horas='" + horas + '\'' +
+                ", minutos='" + minutos + '\'' +
+                ", segundos='" + segundos + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", distancia='" + distancia + '\'' +
                 ", fecha='" + fecha + '\'' +
@@ -78,9 +91,11 @@ public class Actividad {
                 '}';
     }
 
-    public Actividad(String nombre, Float tiempo, String descripcion, Float distancia, String fecha, String peso) {
+    public Actividad(String nombre, Integer horas, Integer minutos, Integer segundos, String descripcion, Float distancia, String fecha, String peso) {
         this.nombre = nombre;
-        this.tiempo = tiempo;
+        this.horas = horas;
+        this.minutos = minutos;
+        this.segundos = segundos;
         this.descripcion = descripcion;
         this.distancia = distancia;
         this.fecha = fecha;

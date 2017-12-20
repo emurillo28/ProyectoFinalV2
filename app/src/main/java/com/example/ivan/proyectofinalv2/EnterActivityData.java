@@ -33,11 +33,10 @@ import static android.content.ContentValues.TAG;
  */
 
 public class EnterActivityData extends Activity {
-    private TextView tv_fecha, edt_tiempo, tvActividad;
+    private TextView tv_fecha, edt_horas, edt_minutos, edt_segundos, tvActividad;
     private EditText edt_distancia, edt_descripcion, edt_peso;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private String idActividad;
-    private Spinner sp_peso, sp_distancia;
     private SQLiteDatabase db;
     private Actividad actividad;
     private Categoria categoria;
@@ -64,19 +63,17 @@ public class EnterActivityData extends Activity {
     }
 
     private void aeroFunctionality() {
-        edt_tiempo = (TextView) findViewById(R.id.edt_tiempo);
+        edt_horas = (TextView) findViewById(R.id.edt_horas);
+        edt_minutos = (TextView) findViewById(R.id.edt_minutos);
+        edt_segundos = (TextView) findViewById(R.id.edt_segundos);
         edt_distancia = (EditText) findViewById(R.id.edt_distancia);
         edt_descripcion = (EditText) findViewById(R.id.edt_descripcion);
-        sp_distancia = (Spinner) findViewById(R.id.spinner);
         tv_fecha = (TextView) findViewById(R.id.tv_fecha);
         tvActividad = (TextView) findViewById(R.id.tvActividad);
         String id = getIntent().getStringExtra("activity");
 
         tvActividad.setText(id);
-        tv_fecha.setText("2017/12/19");
-
-        String distancias[] = {"m", "km", "mi"};
-        sp_distancia.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, distancias));
+        tv_fecha.setText("20-12-2017");
 
         tv_fecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,14 +97,14 @@ public class EnterActivityData extends Activity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: yyy/mm/dd: " + year + "/" + month + "/" + day);
+                Log.d(TAG, "onDateSet: dd-mm-yyyy: " + day + "-" + month + "-" + year);
 
-                String date = year + "/" + month + "/" + day;
+                String date = day + "-" + month + "-" + year;
                 tv_fecha.setText(date);
             }
         };
 
-        edt_tiempo.setOnClickListener(new View.OnClickListener() {
+        edt_horas.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -119,31 +116,78 @@ public class EnterActivityData extends Activity {
                 MyTimePickerDialog mTimePicker = new MyTimePickerDialog(EnterActivityData.this, new MyTimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(com.ikovac.timepickerwithseconds.TimePicker view, int hourOfDay, int minute, int seconds) {
-                        edt_tiempo.setText(String.format("%02d", hourOfDay)+
-                                ":" + String.format("%02d", minute) +
-                                ":" + String.format("%02d", seconds));
+                       // edt_tiempo.setText(String.format("%02d", hourOfDay)+
+                         //       ":" + String.format("%02d", minute) +
+                           //     ":" + String.format("%02d", seconds));
+                        edt_horas.setText(String.format("%02d", hourOfDay));
+                        edt_minutos.setText(String.format("%02d", minute));
+                        edt_segundos.setText(String.format("%02d", seconds));
                         }
                     }, hour, minute, second, true);
                     mTimePicker.show();
 
             }
         });
+        edt_minutos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                int second = mcurrentTime.get(Calendar.SECOND);
+
+                MyTimePickerDialog mTimePicker = new MyTimePickerDialog(EnterActivityData.this, new MyTimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(com.ikovac.timepickerwithseconds.TimePicker view, int hourOfDay, int minute, int seconds) {
+                        edt_horas.setText(String.format("%02d", hourOfDay));
+                        edt_minutos.setText(String.format("%02d", minute));
+                        edt_segundos.setText(String.format("%02d", seconds));
+                        //edt_tiempo.setText(String.format("%02d", hourOfDay)+
+                          //      ":" + String.format("%02d", minute) +
+                            //    ":" + String.format("%02d", seconds));
+                    }
+                }, hour, minute, second, true);
+                mTimePicker.show();
+
+            }
+        });
+        edt_segundos.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                int second = mcurrentTime.get(Calendar.SECOND);
+
+                MyTimePickerDialog mTimePicker = new MyTimePickerDialog(EnterActivityData.this, new MyTimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(com.ikovac.timepickerwithseconds.TimePicker view, int hourOfDay, int minute, int seconds) {
+                       // edt_tiempo.setText(String.format("%02d", hourOfDay)+
+                         //       ":" + String.format("%02d", minute) +
+                           //     ":" + String.format("%02d", seconds));
+                        edt_horas.setText(String.format("%02d", hourOfDay));
+                        edt_minutos.setText(String.format("%02d", minute));
+                        edt_segundos.setText(String.format("%02d", seconds));
+                    }
+                }, hour, minute, second, true);
+                mTimePicker.show();
+
+            }
+        });
     }
 
     private void anaeroFunctionality() {
-        edt_tiempo = (EditText) findViewById(R.id.edt_tiempo);
+        edt_horas = (EditText) findViewById(R.id.edt_tiempo); //Para as repeticiones
         edt_descripcion = (EditText) findViewById(R.id.edt_descripcion);
-        sp_peso = (Spinner) findViewById(R.id.spinner);
         tv_fecha = (TextView) findViewById(R.id.tv_fecha);
         edt_peso = (EditText) findViewById(R.id.edt_peso);
         tvActividad = (TextView) findViewById(R.id.tvActividad);
         String id = getIntent().getStringExtra("activity");
 
         tvActividad.setText(id);
-        tv_fecha.setText("2017/12/19");
-
-        String pesos[] = {"kg","lb"};
-        sp_peso.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, pesos));
+        tv_fecha.setText("20-12-2017");
 
         tv_fecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,9 +211,9 @@ public class EnterActivityData extends Activity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d(TAG, "onDateSet: yyy/mm/dd: " + year + "/" + month + "/" + day);
+                Log.d(TAG, "onDateSet: dd-mm-yyyy: " + day + "-" + month + "-" + year);
 
-                String date = year + "/" + month + "/" + day;
+                String date = day + "-" + month + "-" + year;
                 tv_fecha.setText(date);
             }
         };
@@ -180,22 +224,27 @@ public class EnterActivityData extends Activity {
         ContentValues values = new ContentValues();
 
         String fecha = tv_fecha.getText().toString();
-        String tiempo = edt_tiempo.getText().toString();
         String descripcion = edt_descripcion.getText().toString();
         String nombreActividad = categoria.getNombre();
 
         values.put("fecha",fecha);
-        values.put("tiempo",tiempo);
         values.put("descripcion",descripcion);
         values.put("nombre",nombreActividad);
         if(categoria.getCategoria().equalsIgnoreCase("AERO")) {
             String distancia = edt_distancia.getText().toString();
             values.put("distancia",distancia);
+            String horas = edt_horas.getText().toString();
+            String minutos = edt_minutos.getText().toString();
+            String segundos = edt_segundos.getText().toString();
+            values.put("horas",horas);
+            values.put("minutos",minutos);
+            values.put("segundos",segundos);
         } else {
             String peso = edt_peso.getText().toString();
             values.put("peso", peso);
+            String repeticiones = edt_horas.getText().toString();
+            values.put("horas",repeticiones);
         }
-        Toast.makeText(getApplicationContext(), String.valueOf(tiempo), Toast.LENGTH_SHORT).show();
         db.insert("actividades", null, values);
       //  Snackbar.make(V, "Replace with your own action", Snackbar.LENGTH_LONG)
         //        .setAction("Action", null).show();

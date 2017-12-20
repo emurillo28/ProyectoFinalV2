@@ -39,13 +39,18 @@ public class HistoryActivity extends Activity{
 
         ListView lstactividades = (ListView) findViewById(R.id.lstActividades);
         lstactividades.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombresActividades));
-
         lstactividades.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), SummaryActvity.class);
                 intent.putExtra("nombre", actividades.get(i).getNombre());
                 intent.putExtra("descripcion", actividades.get(i).getDescripcion());
+                intent.putExtra("fecha", actividades.get(i).getFecha());
+                intent.putExtra("horas", actividades.get(i).getHoras());
+                intent.putExtra("minutos", actividades.get(i).getMinutos());
+                intent.putExtra("segundos", actividades.get(i).getSegundos());
+                intent.putExtra("peso", actividades.get(i).getPeso());
+                intent.putExtra("distancia", actividades.get(i).getDistancia());
                 categoria = db.getCategoria(actividades.get(i).getNombre());
                 intent.putExtra("categoria", categoria.getCategoria());
                 startActivity(intent);

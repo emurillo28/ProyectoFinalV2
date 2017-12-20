@@ -53,7 +53,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/top2"
+            android:paddingTop="@dimen/top"
             android:gravity="center">
 
             <EditText
@@ -66,14 +66,14 @@
                 android:inputType="number"
                 android:hint="Peso" />
 
-            <Spinner
-                android:id="@+id/spinner"
-                style="@style/Widget.AppCompat.Spinner"
+            <TextView
+                android:id="@+id/tv_Kg"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:text="Kg"
                 android:gravity="center"
-                android:minHeight="@dimen/letra2"
-                android:scrollbarSize="@dimen/letra2" />
+                android:textAlignment="center"
+                android:textSize="@dimen/letra2" />
         </LinearLayout>
 
         <EditText
