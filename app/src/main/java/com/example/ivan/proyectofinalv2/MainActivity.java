@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,14 +30,23 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        ImageView imgEjercicios = (ImageView)findViewById(R.id.imgEjercicios), imgGraficas =(ImageView)findViewById(R.id.imgGraficas);
+
+        imgEjercicios.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                Intent selectActivity = new Intent(getApplicationContext(), SelectActivity.class);
+                startActivity(selectActivity);
             }
         });
+        imgGraficas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent selectActivity = new Intent(getApplicationContext(), GraficaListActivity.class);
+                startActivity(selectActivity);
+            }
+        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,16 +95,15 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         String id = item.getTitle().toString();
-        Log.d(TAG,id);
-        //Tal vez deberiamos poner el switch..
+        //Tal vez deberiamos poner el switch.. nah
         if(id.equalsIgnoreCase("Mas")) {
             Intent selectActivity = new Intent(getApplicationContext(), SelectActivity.class);
             startActivity(selectActivity);
         }else if(id.equalsIgnoreCase("Registro")) {
             Intent historyActivity = new Intent(getApplicationContext(),HistoryActivity.class);
             startActivity(historyActivity);
-        }else if(id.equalsIgnoreCase("Grafica")) {
-            Intent graphActivity = new Intent(getApplicationContext(),GraphActivity.class);
+        }else if(id.equalsIgnoreCase("Grafica")) { //TODO
+            Intent graphActivity = new Intent(getApplicationContext(),GraficaListActivity.class);
             startActivity(graphActivity);
         }else {
             Intent EnterActivity = new Intent(getApplicationContext(), EnterActivityData.class);

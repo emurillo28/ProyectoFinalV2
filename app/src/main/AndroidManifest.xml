@@ -20,39 +20,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ChooseRunningActivity"
-            android:label="@string/chooseRun"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
-            android:name=".EnterRunningData"
-            android:label="@string/enterdata"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
             android:name=".EnterActivityData"
             android:label="@string/enterdata"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".SelectActivity"
             android:label="Elige la actividad"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".HistoryActivity"
             android:label="Registro de actividades"
-            android:theme="@style/AppTheme">
-        </activity>
+            android:theme="@style/AppTheme" />
         <activity
-        android:name=".SummaryActvity"
-        android:label="Registro de actividades"
-        android:theme="@style/AppTheme">
-        </activity>
+            android:name=".SummaryActvity"
+            android:label="Registro de actividades"
+            android:theme="@style/AppTheme" />
         <activity
-            android:name=".GraphActivity"
-            android:label="Grafica de las actividades"
-            android:theme="@style/AppTheme">
+            android:name=".AgregarCategoria"
+            android:label="@string/title_activity_agregar_categoria"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".GraficaListActivity"
+            android:label="@string/title_grafica_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".GraficaDetailActivity"
+            android:label="@string/title_grafica_detail"
+            android:parentActivityName=".GraficaListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ivan.proyectofinalv2.GraficaListActivity" />
         </activity>
     </application>
 

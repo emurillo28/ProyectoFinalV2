@@ -19,8 +19,7 @@ import java.util.ArrayList;
 
 public class HistoryActivity extends Activity{
 
-    ArrayList<Actividad> actividades; //No se que sea lo correcto, pero esto lo puse por mientras, me base en el del profe de
-    //los contactos
+    ArrayList<Actividad> actividades;
     Categoria categoria;
     DatabaseHelper db;
     @Override

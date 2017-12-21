@@ -43,8 +43,8 @@ public class Actividad {
         this.nombre = nombre;
     }
 
-    public Integer getTiempo() {
-        return ((horas*3600)+(minutos*60)+segundos);
+    public Float getTiempo() {
+        return (float)((horas*60)+(minutos)+(segundos/60));
     }
 
     public void setHoras(Integer horas) { this.horas = horas; }

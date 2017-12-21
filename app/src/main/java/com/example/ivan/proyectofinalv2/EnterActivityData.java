@@ -4,15 +4,18 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -21,6 +24,7 @@ import android.widget.Toast;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import com.example.ivan.proyectofinalv2.entity.Actividad;
 import com.example.ivan.proyectofinalv2.entity.Categoria;
@@ -40,6 +44,7 @@ public class EnterActivityData extends Activity {
     private SQLiteDatabase db;
     private Actividad actividad;
     private Categoria categoria;
+    private Float distancia;
 
     protected void onCreate(Bundle  savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +58,18 @@ public class EnterActivityData extends Activity {
 
         categoria = databaseHelper.getCategoria(id);
         if(categoria.getCategoria().equalsIgnoreCase("AERO")) {
-            setContentView(R.layout.activity_aero_entry);
-            // De donde estariamos sacando el nombre de la actividad?
-            aeroFunctionality();
+            setContentView(R.layout.activity_distancias);
+            ListView distancias = (ListView) findViewById(R.id.distancias);
+            distancias.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Float[] distancias = {1f,5f,10f,15f,21f};
+                    distancia = distancias[position];
+                    setContentView(R.layout.activity_aero_entry);
+                    aeroFunctionality();
+                }
+            });
         } else {
             setContentView(R.layout.layout_anaero_entry);
             anaeroFunctionality();
@@ -72,8 +86,9 @@ public class EnterActivityData extends Activity {
         tvActividad = (TextView) findViewById(R.id.tvActividad);
         String id = getIntent().getStringExtra("activity");
 
+        edt_distancia.setText(distancia.toString());
         tvActividad.setText(id);
-        tv_fecha.setText("20-12-2017");
+        tv_fecha.setText("21-12-2017");
 
         tv_fecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,8 +261,6 @@ public class EnterActivityData extends Activity {
             values.put("horas",repeticiones);
         }
         db.insert("actividades", null, values);
-      //  Snackbar.make(V, "Replace with your own action", Snackbar.LENGTH_LONG)
-        //        .setAction("Action", null).show();
         super.onBackPressed();
     }
 

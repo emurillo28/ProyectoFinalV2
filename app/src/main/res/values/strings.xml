@@ -6,11 +6,13 @@
 
     <string name="action_settings">Ajustes</string>
 
-    <string name="Correr">Running</string>
+    <string name="Correr">Correr</string>
     <string name="Ciclismo">Ciclismo</string>
     <string name="Natacion">Natacion</string>
-    <string name="Pesas">Pesas</string>
-    <string name="Fuerza">Fuerza</string>
+    <string name="PesoMuerto">Pesos muertos</string>
+    <string name="Press">Press de banco</string>
+    <string name="Pullover">Pullover</string>
+    <string name="Flexiones">Flexiones de bicep</string>
     <string name="Mas">Mas</string>
     <string name="run400m">400m</string>
     <string name="chooseRun">Elige la distancia</string>
@@ -18,4 +20,23 @@
     <string name="guardar">Guardar</string>
     <string name="Registro">Registro</string>
     <string name="Grafica">Grafica</string>
+    <string name="Nombre">Nombre</string>
+    <string name="Categoria">Categoria</string>
+
+    <string-array name="distancias">
+        <item>1km</item>
+        <item>5km</item>
+        <item>10km</item>
+        <item>15km</item>
+        <item>21km</item>
+    </string-array>
+
+    <string-array name="categorias">
+        <item>Aero</item>
+        <item>Anaero</item>
+    </string-array>
+
+    <string name="title_activity_agregar_categoria">Agregar ejercicio</string>
+    <string name="title_grafica_list">Graficas</string>
+    <string name="title_grafica_detail">Grafica Detail</string>
 </resources>

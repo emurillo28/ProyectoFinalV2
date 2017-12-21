@@ -32,4 +32,12 @@ public class Categoria {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "nombre='" + nombre + '\'' +
+                ", categoria='" + categoria + '\'' +
+                '}';
+    }
 }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ivan.proyectofinalv2.AgregarCategoria">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="381dp"
+        android:layout_height="82dp"
+        android:layout_x="3dp"
+        android:layout_y="68dp">
+
+        <EditText
+            android:id="@+id/Nombre"
+            android:layout_width="match_parent"
+            android:layout_height="74dp"
+            android:hint="@string/Nombre" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_weight="1"
+        android:layout_x="6dp"
+        android:layout_y="170dp"
+        android:entries="@array/categorias"/>
+
+    <Button
+        android:id="@+id/guardarCategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="133dp"
+        android:layout_y="280dp"
+        android:text="@string/guardar"
+        android:onClick="guardar"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="497dp"
+        android:layout_height="29dp"
+        android:layout_x="1dp"
+        android:layout_y="154dp"
+        android:text="@string/Categoria" />
+
+</AbsoluteLayout>

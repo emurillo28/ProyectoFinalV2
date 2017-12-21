@@ -1,5 +1,6 @@
 package com.example.ivan.proyectofinalv2;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -36,12 +37,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Creamos Las tablas de la base de datos
         db.execSQL(CREAR_TB_ACTIVIDADES);
         db.execSQL(CREAR_TB_LISTA_ACTIVIDADES);
-        db.execSQL("INSERT INTO categorias values(\"Running\",\"AERO\")");
+        db.execSQL("INSERT INTO categorias values(\"Correr\",\"AERO\")");
         db.execSQL("INSERT INTO categorias values(\"Ciclismo\",\"AERO\")");
         db.execSQL("INSERT INTO categorias values(\"Natacion\",\"AERO\")");
         db.execSQL("INSERT INTO categorias values(\"Caminata\",\"AERO\")");
-        db.execSQL("INSERT INTO categorias values(\"Fuerza\", \"ANAERO\")");
-        db.execSQL("INSERT INTO categorias values(\"Pesas\", \"ANAERO\")");/*
+        db.execSQL("INSERT INTO categorias values(\"Pesos muertos\", \"ANAERO\")");
+        db.execSQL("INSERT INTO categorias values(\"Press de banco\", \"ANAERO\")");
+        db.execSQL("INSERT INTO categorias values(\"Pullover\", \"ANAERO\")");
+        db.execSQL("INSERT INTO categorias values(\"Flexiones de bicep\", \"ANAERO\")");
+
+        /*
         db.execSQL("INSERT INTO actividades values(\"Running\",1:30:15,15000,\"Corriendo en la calle\",\"2017/12/17\",0)");
         db.execSQL("INSERT INTO actividades values(\"Running\",1:10:15,12000,\"Corriendo en la calle\",\"2017/12/18\",0)");
         db.execSQL("INSERT INTO actividades values(\"Running\",2:30:37,25000,\"Corriendo en la calle\",\"2017/12/29\",0)");
@@ -96,14 +101,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return categorias;
     }
 
+    public ArrayList<Categoria> lstCategorias(String categ){
+        ArrayList<Categoria> categorias = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT nombre, categoria from categorias WHERE categoria = "+ categ ,null);
+
+        while (cursor.moveToNext()) {
+            Categoria categoria = new Categoria();
+            categoria.setNombre(cursor.getString(0));
+            categoria.setCategoria(cursor.getString(1));
+            categorias.add(categoria);
+        }
+
+        return categorias;
+    }
+
     public ArrayList<Actividad> lstActividades() {
         ArrayList<Actividad> actividades = new ArrayList<>();
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("SELECT horas, minutos, segundos, distancia, descripcion, fecha, nombre, peso from actividades",null);
-//CREATE  TABLE actividades(nombre text, tiempo FLOAT, distancia FLOAT, descripcion TEXT, fecha TEXT, peso FLOAT)
         while (cursor.moveToNext()) {
             Actividad actividad = new Actividad();
-            //actividad.setTiempo(cursor.getFloat(0));
             actividad.setHoras(cursor.getInt(0));
             actividad.setMinutos(cursor.getInt(1));
             actividad.setSegundos(cursor.getInt(2));
@@ -117,6 +135,35 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return actividades;
+    }
+
+    public ArrayList<Actividad> lstActividades(String nombre) {
+        ArrayList<Actividad> actividades = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT horas, minutos, segundos, distancia, descripcion, fecha, nombre, peso from actividades WHERE nombre="+"'"+ nombre+"'",null);
+        while (cursor.moveToNext()) {
+            Actividad actividad = new Actividad();
+            actividad.setHoras(cursor.getInt(0));
+            actividad.setMinutos(cursor.getInt(1));
+            actividad.setSegundos(cursor.getInt(2));
+            actividad.setDistancia(cursor.getFloat(3));
+            actividad.setDescripcion(cursor.getString(4));
+            actividad.setFecha(cursor.getString(5));
+            actividad.setNombre(cursor.getString(6));
+            actividad.setPeso(cursor.getString(7));
+
+            actividades.add(actividad);
+        }
+
+        return actividades;
+    }
+
+    public void agregarCategoria(Categoria categoria){
+        ContentValues values = new ContentValues();
+        values.put("nombre",categoria.getNombre());
+        values.put("categoria",categoria.getCategoria());
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert("categorias",null,values);
     }
 
 }

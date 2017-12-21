@@ -6,7 +6,7 @@
         <item
             android:id="@+id/nav_carrera"
             android:icon="@drawable/icons8_running_50"
-            android:title="@string/Correr"/>
+            android:title="@string/Correr" />
         <item
             android:id="@+id/nav_ciclismo"
             android:icon="@drawable/icons8_cycling_50"
@@ -16,13 +16,13 @@
             android:icon="@drawable/icons8_swimming_50"
             android:title="@string/Natacion" />
         <item
-            android:id="@+id/nav_pesas"
+            android:id="@+id/nav_press"
             android:icon="@drawable/icons8_weightlifting_50"
-            android:title="@string/Pesas" />
+            android:title="@string/Press" />
         <item
-            android:id="@+id/nav_fuerza"
+            android:id="@+id/nav_peso_muerto"
             android:icon="@drawable/icons8_pushups_50"
-            android:title="@string/Fuerza" />
+            android:title="@string/PesoMuerto" />
         <item
             android:id="@+id/nav_mas"
             android:icon="@drawable/icons8_plus_50"
